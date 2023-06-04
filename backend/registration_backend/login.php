@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-lay">
-            <form onsubmit="return validateform()" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form onsubmit="return validateform()" method="post" name="form2">
                 <div class="form-controll">
                     <label class="label-lay" for="username">Username</label>
                     <input type="text" name="username" id="username" placeholder="Username" required class="input-lay" />
@@ -31,35 +31,42 @@
                 </div>
 
                 <div class="btn-lay">
-                    <input class="btn-log" type="submit" value="Login" name="submit" onclick="validateForm()" />
+                    <!-- <input class="btn-log" type="submit" value="Login" name="submit" onclick="validateForm()" /> -->
+                    <button type="submit" class="btn-log" name="submit" value="Submit" onclick="validateForm()">Login</button>
                     <input class="btn-cancel" type="reset" name="cancel" value="Cancel" />
                 </div>
             </form>
         </div>
         <?php
-        include_once '../config/config.php';
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        include '../config/config.php';
+
+        if (isset($_POST['submit'])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
+
             $result = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
 
             if (!$result) {
-                echo "Error: " . $mysqli->error;
+                echo "Error: " . $conn->error;
                 exit();
             }
 
             if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $email = $row['email'];
+
                 session_start();
-                $_SESSION["username"] = $username;
-                $_SESSION["email"] = $email;
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
 
                 header("Location: ../../../index/index.php");
                 exit();
             } else {
-                echo 'Invalid username or password';
+                echo '<p>Invalid username or password</p>';
             }
         }
         ?>
+
 
 </body>
 

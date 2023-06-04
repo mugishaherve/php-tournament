@@ -3,7 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION["email"])) {
+    $username = $_SESSION['username'];
+
 
 
     // Create a new database connection
@@ -18,8 +20,9 @@ if (isset($_SESSION['email'])) {
     $result = mysqli_query($mysqli, "SELECT * FROM users");
 
     // Fetch the username from the session
-    $username = $_SESSION['username'];
+
 ?>
+
     <div class="nav">
         <ul>
             <li><a href="#">Home</a></li>
@@ -32,7 +35,6 @@ if (isset($_SESSION['email'])) {
     </div>
 <?php
     // Close the database connection
-    $mysqli->close();
 } else {
     header('Location: ../../../backend/registration_backend/login.php');
     exit();

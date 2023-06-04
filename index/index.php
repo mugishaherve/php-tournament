@@ -25,9 +25,9 @@ session_start();
       <div onclick="handleNavigate('championship')" class="body-child">
         <h1>CHAMPIONSHIP SECTION</h1>
       </div>
-      <div onclick="handleNavigate('tournament')" class="body-child">
+      <a href="../management/management.php" class="body-child">
         <h1>TOURNAMENT SECTION</h1>
-      </div>
+      </a>
     </div>
   </div>
 </body>
