@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(17, 17, 71);
+    margin: 50px;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20px;
+}
+
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+.match-item {
+    border: 3px solid #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 200px;
+}
+
+
+.sub-container-one {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.one {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.two {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.three {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.four {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.match-item>h4 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.match-item>h4>span {
+    background-color: rgb(12, 12, 38);
+    width: 20%;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.upload {
+    width: 20%;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: red;
+}
+
+.upload>input {
+    width: 100%;
+}
+
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.upload>input {
+    height: 25px;
+    outline: none;
+}
+
+.container-two {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload>input::placeholder {
+    color: #4d4b4b;
+    font-weight: bolder;
+    padding-left: 15px;
+}
+
+.upload>div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: right;
+}
+
+.upload>div>button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-weight: bolder;
+}
